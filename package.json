@@ -1,7 +1,7 @@
 {
   "name": "com.sendbird.chat",
-  "displayName": "SendbirdChat",
-  "version": "4.0.0-beta.1",
+  "displayName": "SendbirdChat - LE Fork",
+  "version": "4.0.0-beta.1 LE",
   "documentationUrl": "https://github.com/sendbird/sendbird-chat-sdk-unity",
   "changelogUrl": "https://github.com/sendbird/sendbird-chat-sdk-unity/blob/master/CHANGELOG.md",
   "licensesUrl": "https://github.com/sendbird/sendbird-chat-sdk-unity/blob/master/LICENSE.md",
