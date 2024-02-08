@@ -78,7 +78,8 @@ namespace Sendbird.Chat
 
         private SbPreviousMessageListQuery CreatePreviousMessageListQueryInternal(SbPreviousMessageListQueryParams inParams = null)
         {
-            inParams ??= new SbPreviousMessageListQueryParams();
+			if (inParams == null)
+				inParams = new SbPreviousMessageListQueryParams();
             return new SbPreviousMessageListQuery(ChannelType, _url, inParams, chatMainContextRef);
         }
     }

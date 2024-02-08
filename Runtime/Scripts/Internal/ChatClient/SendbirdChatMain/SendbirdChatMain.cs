@@ -128,19 +128,22 @@ namespace Sendbird.Chat
 
         internal SbApplicationUserListQuery CreateApplicationUserListQuery(SbApplicationUserListQueryParams inParams = null)
         {
-            inParams ??= new SbApplicationUserListQueryParams();
+			if (inParams == null)
+				inParams = new SbApplicationUserListQueryParams();
             return new SbApplicationUserListQuery(inParams, ChatMainContext);
         }
 
         internal SbBlockedUserListQuery CreateBlockedUserListQuery(SbBlockedUserListQueryParams inParams = null)
         {
-            inParams ??= new SbBlockedUserListQueryParams();
+			if (inParams == null)
+				inParams = new SbBlockedUserListQueryParams();
             return new SbBlockedUserListQuery(inParams, ChatMainContext);
         }
 
         public SbMessageSearchQuery CreateMessageSearchQuery(SbMessageSearchQueryParams inParams = null)
         {
-            inParams ??= new SbMessageSearchQueryParams();
+			if (inParams == null)
+				inParams = new SbMessageSearchQueryParams();
             return new SbMessageSearchQuery(inParams, ChatMainContext);
         }
     }

@@ -621,5 +621,11 @@ namespace Sendbird.Chat
         /// </summary>
         /// @since 4.0.0
         SocketChannelNotFound = 900500,
-    }
+
+		/// <summary>
+		/// The request failed because Sift marked the message as profanity.
+		/// </summary>
+		/// @since 4.0.0
+		SiftBlocked = 900700,
+	}
 }

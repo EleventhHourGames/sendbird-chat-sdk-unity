@@ -402,12 +402,14 @@ namespace Sendbird.Chat
 
                     if (webSocketReceiveResult.MessageType == WebSocketMessageType.Text)
                     {
-                        using StreamReader streamReader = new StreamReader(memoryStream, Encoding.UTF8);
-                        Task<string> readToEndTask = streamReader.ReadToEndAsync();
+                        using (StreamReader streamReader = new StreamReader(memoryStream, Encoding.UTF8))
+                        {
+                            Task<string> readToEndTask = streamReader.ReadToEndAsync();
                         await readToEndTask;
 
                         Logger.Info(Logger.CategoryType.WebSocket, $"WsClient::Receive {readToEndTask.Result}");
                         _receiveQueue.Add(readToEndTask.Result);
+                        }
                     }
                     else if (webSocketReceiveResult.MessageType == WebSocketMessageType.Close)
                     {
