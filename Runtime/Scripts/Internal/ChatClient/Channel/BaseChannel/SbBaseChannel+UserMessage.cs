@@ -61,6 +61,14 @@ namespace Sendbird.Chat
             {
                 if (inError != null)
                 {
+					if(inError.ErrorCode == SbErrorCode.SiftBlocked)
+					{
+						SbUserMessage failedMessage = pendingMessage.CloneWithFailedStatus(inError.ErrorCode) as SbUserMessage;
+						NotifyMessageFailed(failedMessage);
+						inCompletionHandler?.Invoke(failedMessage, inError);
+						return;
+					}
+
                     SendUserMessageApiCommand.Request apiCommand = new SendUserMessageApiCommand.Request(
                         pendingMessage.RequestId, Url, ChannelType, chatMainContextRef.CurrentUserId,
                         inUserMessageCreateParams, OnSendUserMessageApiCommandCompletionHandler);
